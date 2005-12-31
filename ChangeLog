@@ -1,0 +1,6 @@
+2003-08-16  Marco Maggi  <marcomaggi@tiscalinet.it>
+
+	* configure.in: adapted from TkTable
+
+	* Makefile.in (dist): adapted from TkTable
+

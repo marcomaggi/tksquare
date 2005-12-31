@@ -1,0 +1,8 @@
+Identifier: tksquare
+Version: @VERSION@
+Title: TkSquare
+Description: a widget example
+Rights: BSD-like
+URL: <http://web.tiscali.it/marcomaggi/software/tksquare/>
+Architecture: Win, UNIX
+Subject: widgets

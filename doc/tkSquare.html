@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head><title>Tk Square</title></head>
+  <body>
+    <h3>Tk Square Extension 0.1</h3>
+    <h4>NAME</h4>
+    <p><b>square</b> - Create and manipulate squares</p>
+    <h4>SYNOPSIS</h4>
+    <p><b>square</b> <i>pathName</i> ?<i>options</i>?
+    <h4>STANDARD OPTIONS</h4>
+    <p>-background -borderwidth -foreground -relief</p>
+    <h4>WIDGET-SPECIFIC OPTIONS</h4>
+    <p>
+      Command-Line Name: <b>-posx</b><br>
+      Database name: <b>posx</b>
+      Database class: <b>PosX</b>
+    </p>
+    <p>
+      The  X  coordinate  of  the  top left  corner  of  the
+      square. Defaults to 0.
+    </p>
+    <p>
+      Command-Line Name: <b>-posy</b><br>
+      Database name: <b>posy</b><br>
+      Database class: <b>PosY</b>
+    <p>
+      The  Y  coordinate  of  the  top left  corner  of  the
+      square. Defaults to 0.
+    </p>
+    <p>
+      Command-Line Name: <b>-size</b><br>
+      Database name: <b>size</b><br>
+      Database class: <b>Size</b>
+    </p>
+    <p>
+      The dimension of the square. Defaults to 20. 
+    </p>
+    <h4>DESCRIPTION</h4>
+    <p>
+      The <b>square</b>  creates a rectangular window in  which a a
+      single  square appears  and  can be  moved around  and
+      resized. 
+    </p>
+    <h4>WIDGET COMMAND</h4>
+    <p>
+      The <b>square</b> command creates a new Tcl command whose name is
+      <i>pathName</i>. This command may be used to invoke various
+      operations  on the  widget.   It has  the following  general
+      form:
+    </p>
+    <p>
+      <i>pathName</i> option ?<i>arg arg ...</i>? 
+    </p>
+    <p>
+      <i>Option</i> and the  <i>arg</i>s determine the exact
+      behavior of the command.
+    </p>
+    <p>
+      The following commands  are possible for <b>square</b>
+      widgets:
+    </p>
+    <dl>
+      <dt><i>pathName</i> <b>cget</b> <i>option</i></dt>
+      <dd>
+	<p>
+	  Returns  the current  value  of the  configuration
+	  option given  by <i>option</i>.  <i>Option</i> may
+	  have   any   of  the   values   accepted  by   the
+	  <b>square</b> command.
+	</p>
+      </dd>
+      <dt>
+	<i>pathName</i> <b>configure</b> ?<i>option</i>? ?<i>value option value ...</i>? 
+      </dt>
+      <dd>
+	<p>
+	  Query or  modify the configuration  options of the
+	  widget.  If no <i>option</i> is specified, returns
+	  a list describing all of the available options for
+	  <i>pathName</i>  (see  <b>Tk_ConfigureInfo</b> for
+	  information  on  the  format  of this  list).   If
+	  <i>option</i>  is specified with  no <i>value</i>,
+	  then the command returns a list describing the one
+	  named option  (this list will be  identical to the
+	  corresponding sublist of  the value returned if no
+	  <i>option</i>  is  specified).   If  one  or  more
+	  <i>option-value</i> pairs  are specified, then the
+	  command  modifies the  given  widget option(s)  to
+	  have the given value(s);  in this case the command
+	  returns an  empty string.  <i>Option</i>  may have
+	  any  of the values  accepted by  the <b>square</b>
+	  command.
+	</p>
+      </dd>
+    </dl>
+    <h4>KEYWORDS</h4>
+    <p>
+      square, widget, extension
+    </p>
+  </body>
+</html>
+<!--
+$Id: tkSquare.html,v 1.1.1.1 2003/08/16 11:09:30 marco Exp $
+-->
