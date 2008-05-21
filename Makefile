@@ -311,7 +311,7 @@ pkgIndex.tcl:
 
 #========================================================================
 # Don't modify the file to clean here.  Instead, set the "CLEANFILES"
-# variable in configure.in
+# variable in configure.ac
 #========================================================================
 
 clean:  
@@ -398,11 +398,11 @@ dist: dist-clean
 	mkdir -p $(DIST_DIR)
 	cp -p $(srcdir)/README* $(srcdir)/ChangeLog \
 		$(srcdir)/Makefile.in $(srcdir)/aclocal.m4 \
-		$(srcdir)/configure $(srcdir)/configure.in \
+		$(srcdir)/configure $(srcdir)/configure.ac \
 		$(srcdir)/DESCRIPTION.* $(srcdir)/license.terms \
 		$(DIST_DIR)/
 	chmod 664 $(DIST_DIR)/Makefile.in $(DIST_DIR)/aclocal.m4
-	chmod 775 $(DIST_DIR)/configure $(DIST_DIR)/configure.in
+	chmod 775 $(DIST_DIR)/configure $(DIST_DIR)/configure.ac
 
 	mkdir $(DIST_DIR)/tclconfig
 	cp $(srcdir)/tclconfig/install-sh $(srcdir)/tclconfig/tcl.m4 \
