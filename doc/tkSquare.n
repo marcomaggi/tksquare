@@ -239,6 +239,8 @@ Database Class:	\\fB\\$3\\fR
 .SH NAME
 square \- Create and manipulate squares
 .SH SYNOPSIS
+\fBpackage require TkSquare\fI ?0.1?
+
 \fBsquare\fI \fIpathName \fR?\fIoptions\fR?
 .SO
 \-background \-borderwidth \-foreground \-relief
@@ -266,7 +268,7 @@ single square appears and can be moved around and resized.
 The
 .B square
 command   creates  a   new   Tcl  command   whose  name   is
-.IR pathName . 
+.IR pathName .
 This command may be used to invoke various
 operations  on the  widget.   It has  the following  general
 form:

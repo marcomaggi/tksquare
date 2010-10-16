@@ -1,3 +1,4 @@
+
 			  TkSquare
 			  ========
 
@@ -13,9 +14,9 @@ Topics
 1. Introduction
 ---------------
 
-TkSquare is an example widget. 
-
-  The package is built with the TEA infrastructure.
+TkSquare is  an example widget.  The source  code comes from
+the  Tcl distribution  itself, it  is repackaged  here  as a
+usage example for the TEA infrastructure.
 
 
 2. License
@@ -24,7 +25,7 @@ TkSquare is an example widget.
 Copyright (c) 1997 Sun Microsystems, Inc.
 Copyright (c) 1999-2000 Ajuba Solutions.
 Copyright (c) 2002 ActiveState Corporation.
-Copyright (c) 2003 Marco Maggi.
+Copyright (c) 2003, 2010 Marco Maggi.
 
 The  author hereby  grant permission  to use,  copy, modify,
 distribute, and license  this software and its documentation
@@ -55,19 +56,19 @@ ENHANCEMENTS, OR MODIFICATIONS.
 
 
 3. Building and installing
------------
+--------------------------
 
 1. Uncompress and unpack the distribution
 
    ON UNIX:
-	gzip -cd Tksquare<version>.tar.gz | tar xf -
+	gzip -cd tksquare<version>.tar.gz | tar xf -
 
    ON WINDOWS:
 	use something like WinZip to unpack the archive.
 
    ON MACINTOSH:
 	use StuffIt Expander to unstuff the archive.
-    
+
    This  will create  a subdirectory  tksquare<version> with
    all the files in it.
 
@@ -104,27 +105,29 @@ ENHANCEMENTS, OR MODIFICATIONS.
 	make test (OPTIONAL)
 	make install
 
-   tksquare  is built to  comply to  the latest  tcl package
-   conventions.  There is also  a specific "make static" for
-   those who need it.
+   TkSquare  is built to  comply to  the latest  tcl package
+   conventions.
 
 4. Use it
 
-   Start a regular wish interpreter, 'load' the library, and
-   look at the square.  There  are a few test scripts in the
-   tests directory which you can source.
+   Start a  regular "wish" interpreter and  load the package
+   with:
+
+      package require TkSquare
+
+   then use  the [square] command.  There is  a test program
+   "square.tcl"  in  the  "tests"  directory of  the  source
+   distribution.
 
 5. Read the documentation
 
-   There is a Unix manpage provided in the doc/ subdirectory
-   and  its HTML  version, too.   These describe  the square
-   widget's features and commands in depth.  If something is
-   confusing, just to try it out.
-
+   There   is  a   Unix  manpage   provided  in   the  "doc"
+   subdirectory and  its HTML version,  too.  These describe
+   the square  widget's features and commands  in depth.  If
+   something is confusing, just to try it out.
 
 
 ### end of file
-# $Id: README,v 1.1.1.3 2003/08/16 15:16:05 marco Exp $
 # Local Variables:
 # mode: text
 # End:
