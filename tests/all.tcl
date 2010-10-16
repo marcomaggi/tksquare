@@ -1,41 +1,66 @@
 # all.tcl --
-# 
-# Part of: ZTCL
-# Contents: main test file
-# Date: Wed May  8, 2002
-# 
-# Abstract
-# 
-# 
-# 
-# Copyright (c) 2002, 2003 Marco Maggi
-# 
-# This is free software; you  can redistribute it and/or modify it under
-# the terms of the GNU Lesser General Public License as published by the
-# Free Software  Foundation; either version  2.1 of the License,  or (at
-# your option) any later version.
-# 
-# This library  is distributed in the  hope that it will  be useful, but
-# WITHOUT   ANY  WARRANTY;   without  even   the  implied   warranty  of
-# MERCHANTABILITY  or FITNESS  FOR A  PARTICULAR PURPOSE.   See  the GNU
-# Lesser General Public License for more details.
-# 
-# You  should have  received a  copy of  the GNU  Lesser  General Public
-# License along  with this library; if  not, write to  the Free Software
-# Foundation, Inc.,  59 Temple Place,  Suite 330, Boston,  MA 02111-1307
-# USA
-# 
-# $Id: all.tcl,v 1.1.1.1 2003/08/16 09:09:40 marco Exp $
 #
+# This file contains a top-level script to run all of the Tcl
+# tests.  Execute it by invoking "source all.test" when running tcltest
+# in this directory.
+#
+# Copyright (c) 1998-2000 by Scriptics Corporation.
+# All rights reserved.
+# 
+# RCS: @(#) $Id: all.tcl,v 1.4 2004/07/04 22:04:20 patthoyts Exp $
 
-package require Tcl 8.4
-package require tcltest 2.2
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest
+    namespace import ::tcltest::*
+}
 
-::tcltest::configure -verbose "pass error" \
-	-testdir [file dirname [file normalize [info script]]]
-eval ::tcltest::configure $argv
+set ::tcltest::testSingleFile false
+set ::tcltest::testsDirectory [file dir [info script]]
 
-::tcltest::runAllTests
+# We need to ensure that the testsDirectory is absolute
+if {[catch {::tcltest::normalizePath ::tcltest::testsDirectory}]} {
+    # The version of tcltest we have here does not support
+    # 'normalizePath', so we have to do this on our own.
 
+    set oldpwd [pwd]
+    catch {cd $::tcltest::testsDirectory}
+    set ::tcltest::testsDirectory [pwd]
+    cd $oldpwd
+}
 
-### end of file
+set chan $::tcltest::outputChannel
+
+puts $chan "Tests running in interp:       [info nameofexecutable]"
+puts $chan "Tests running with pwd:        [pwd]"
+puts $chan "Tests running in working dir:  $::tcltest::testsDirectory"
+if {[llength $::tcltest::skip] > 0} {
+    puts $chan "Skipping tests that match:            $::tcltest::skip"
+}
+if {[llength $::tcltest::match] > 0} {
+    puts $chan "Only running tests that match:        $::tcltest::match"
+}
+
+if {[llength $::tcltest::skipFiles] > 0} {
+    puts $chan "Skipping test files that match:       $::tcltest::skipFiles"
+}
+if {[llength $::tcltest::matchFiles] > 0} {
+    puts $chan "Only sourcing test files that match:  $::tcltest::matchFiles"
+}
+
+set timeCmd {clock format [clock seconds]}
+puts $chan "Tests began at [eval $timeCmd]"
+
+# source each of the specified tests
+foreach file [lsort [::tcltest::getMatchingFiles]] {
+    set tail [file tail $file]
+    puts $chan $tail
+    if {[catch {source $file} msg]} {
+	puts $chan $msg
+    }
+}
+
+# cleanup
+puts $chan "\nTests ended at [eval $timeCmd]"
+::tcltest::cleanupTests 1
+return
+
